@@ -1,0 +1,32 @@
+// IMPORTS & CHARACTER SET
+// ==========================================
+@charset 'utf-8';
+
+
+// FONTS
+// ==========================================
+.font-base(@weight: 400) {
+	font-family: 'Comfortaa', 'Avant Garde', 'Avantgarde', 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;;
+	font-weight: @weight;
+	font-style: normal;
+}
+
+.font-bold(@weight: 700) {
+	font-family: 'Comfortaa', 'Avant Garde', 'Avantgarde', 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;;
+	font-weight: @weight;
+	font-style: normal;
+}
+
+// MIXINS & VARIABLES
+// ==========================================
+
+
+// GENERAL PAGE LAYOUT
+// ==========================================
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	.font-base();
+}
