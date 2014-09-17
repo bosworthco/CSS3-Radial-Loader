@@ -63,6 +63,10 @@ h4, h5, h6, a, p {
 @circle-size:	24rem;
 @inset-size:	@circle-size - 1;
 
+@percentage-color: @circle-color;
+@percentage-font-size: 22px;
+@percentage-text-width: 60px;
+
 @transition-length: 1s;
 
 .experiment__loader{
@@ -122,6 +126,35 @@ h4, h5, h6, a, p {
 			-webkit-border-radius: 50%;
 			-moz-border-radius: 50%;
 			border-radius: 50%;
+
+			.percentage {
+				height: @percentage-font-size;
+				width: @percentage-text-width;
+				overflow: hidden;
+				
+				position: absolute;
+				top: 50%;
+				left: 50%;
+
+				margin-top: -@percentage-font-size/2;
+				margin-left: -@percentage-text-width/2;
+				line-height: 1;
+
+				.numbers {
+					text-align: left;
+					margin-top: -@percentage-font-size;
+					transition: width @transition-length;
+
+					span {
+						width: @percentage-text-width;
+						display: inline-block;
+						vertical-align: top;
+						text-align: center;
+						font-size: @percentage-font-size;
+						color: @percentage-color;
+					}
+				}
+			}
 		}
 	}
 
@@ -140,6 +173,9 @@ h4, h5, h6, a, p {
 					-webkit-transform: rotate(@increment * @i * 2);
 					-ms-transform: rotate(@increment * @i * 2);
 					transform: rotate(@increment * @i * 2);
+				}
+				.inset .percentage .numbers {
+					width: @i * @percentage-text-width + @percentage-text-width;
 				}
 			}
 		}
