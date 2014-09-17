@@ -124,4 +124,26 @@ h4, h5, h6, a, p {
 			border-radius: 50%;
 		}
 	}
+
+	@i: 0;
+	@increment: 180deg / 100;
+	
+	.loop (@i) when (@i <= 100) {
+		&[data-progress="@{i}"] {
+			.circle {
+				.mask.full, .fill {
+					-webkit-transform: rotate(@increment * @i);
+					-ms-transform: rotate(@increment * @i);
+					transform: rotate(@increment * @i);
+				}	
+				.fill.fix {
+					-webkit-transform: rotate(@increment * @i * 2);
+					-ms-transform: rotate(@increment * @i * 2);
+					transform: rotate(@increment * @i * 2);
+				}
+			}
+		}
+		.loop(@i + 1);
+	}
+	.loop(@i);
 }
