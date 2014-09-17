@@ -1,21 +1,21 @@
 // IMPORTS & CHARACTER SET
 // ==========================================
 @charset 'utf-8';
-@import url('http://fonts.googleapis.com/css?family=Comfortaa:400,700');
+@import url('http://fonts.googleapis.com/css?family=Raleway:200,300');
 
 // FONTS
 // ==========================================
-@base-color: #3B8FD0;
-@fontstack: 'Comfortaa', 'Avant Garde', 'Avantgarde', 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
+@base-color: #000;
+@fontstack: 'Raleway', 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
 
-.font-base(@weight: 400){
+.font-base(@weight: 200){
 	font-family: @fontstack;
 	font-weight: @weight;
 	font-style: normal;
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
 }
-.font-bold(@weight: 700){
+.font-bold(@weight: 300){
 	font-family: @fontstack;
 	font-weight: @weight;
 	font-style: normal;
@@ -31,21 +31,25 @@
 }
 
 html, body{
-	.font-bold();
+	.font-base();
 	font-size: 10px;
 	margin: 0;
 	padding: 0;
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
-
+	color: #FFF;
 	background: @base-color;
 }
 
 h1, h2, h3,
-h4, h5, h6, a, p {
-	color: #ECF02C;
+h4, h5, h6 {
+	.font-bold();
+}
+
+a, p {
 	text-decoration: none;
+	color: #FFF;
 }
 
 .experiment{
@@ -58,13 +62,13 @@ h4, h5, h6, a, p {
 
 // RADIAL LOADER
 // ==========================================
-@circle-bg:		#296390;
-@circle-color:	#ECF02C;
+@circle-bg:		#222;
+@circle-color:	#FFF;
 @circle-size:	24rem;
-@inset-size:	@circle-size - 1;
+@inset-size:	@circle-size - 0.4;
 
 @percentage-color: @circle-color;
-@percentage-font-size: 22px;
+@percentage-font-size: 16px;
 @percentage-text-width: 60px;
 
 @transition-length: 1s;
@@ -72,7 +76,7 @@ h4, h5, h6, a, p {
 .experiment__loader{
 	width: @circle-size;
 	height: @circle-size;
-	margin: 0 auto;
+	margin: 4rem auto;
 }
 
 .loader__progress{
@@ -107,9 +111,9 @@ h4, h5, h6, a, p {
 			backface-visibility: hidden;
 		}
 		.mask{
-			clip: rect(0px, @circle-size, @circle-size, @circle-size/2);
+			clip: rect(0rem, @circle-size, @circle-size, @circle-size/2);
 			.fill {
-				clip: rect(0px, @circle-size/2, @circle-size, 0px);
+				clip: rect(0rem, @circle-size/2, @circle-size, 0rem);
 				background-color: @circle-color;
 			}
 		}
