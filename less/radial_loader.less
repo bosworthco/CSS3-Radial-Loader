@@ -1,32 +1,127 @@
 // IMPORTS & CHARACTER SET
 // ==========================================
 @charset 'utf-8';
-
+@import url('http://fonts.googleapis.com/css?family=Comfortaa:400,700');
 
 // FONTS
 // ==========================================
-.font-base(@weight: 400) {
-	font-family: 'Comfortaa', 'Avant Garde', 'Avantgarde', 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;;
+@base-color: #3B8FD0;
+@fontstack: 'Comfortaa', 'Avant Garde', 'Avantgarde', 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
+
+.font-base(@weight: 400){
+	font-family: @fontstack;
 	font-weight: @weight;
 	font-style: normal;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
 }
-
-.font-bold(@weight: 700) {
-	font-family: 'Comfortaa', 'Avant Garde', 'Avantgarde', 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;;
+.font-bold(@weight: 700){
+	font-family: @fontstack;
 	font-weight: @weight;
 	font-style: normal;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
 }
-
-// MIXINS & VARIABLES
-// ==========================================
 
 
 // GENERAL PAGE LAYOUT
 // ==========================================
-* {
-	box-sizing: border-box;
+*{
+	box-sizing:  border-box;
 }
 
-html, body {
+html, body{
 	.font-base();
+	font-size: 10px;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+
+	background: @base-color;
+}
+
+h1, h2, h3,
+h4, h5, h6{
+	.font-bold();
+	color: #ECF02C;
+}
+
+.experiment{
+	width: 60rem;
+	margin: 0 auto;
+	padding: 4rem 0;
+	text-align: center;
+}
+
+
+// RADIAL LOADER
+// ==========================================
+@circle-bg:		#296390;
+@circle-color:	#ECF02C;
+@circle-size:	24rem;
+@inset-size:	@circle-size - 2;
+
+@transition-length: 1s;
+
+.experiment__loader{
+	width: @circle-size;
+	height: @circle-size;
+	margin: 0 auto;
+}
+
+.loader__progress{
+	position: relative;
+	background-color: @circle-bg;
+	width: @circle-size;
+	height: @circle-size;
+
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	
+	.circle {
+		.mask, .fill {
+			position: absolute;
+			width: @circle-size;
+			height: @circle-size;
+
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+			
+			-webkit-transition: -webkit-transform @transition-length;
+			-moz-transition: -moz-transform @transition-length;
+			-o-transition: -o-transform @transition-length;
+			transition: transform @transition-length;
+
+			-webkit-backface-visibility: hidden;
+			-moz-backface-visibility: hidden;
+			-ms-backface-visibility: hidden;
+			-o-backface-visibility: hidden;
+			backface-visibility: hidden;
+		}
+		.mask{
+			clip: rect(0px, @circle-size, @circle-size, @circle-size/2);
+			.fill {
+				clip: rect(0px, @circle-size/2, @circle-size, 0px);
+				background-color: @circle-color;
+			}
+		}
+		.inset{
+			position: absolute;
+			width: @inset-size;
+			height: @inset-size;
+			margin-left: -@inset-size/2;
+			margin-top: -@inset-size/2;
+			top: 50%;
+			left: 50%;
+			background: @base-color;
+
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+		}
+	}
 }

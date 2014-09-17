@@ -10,12 +10,11 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+  <link rel="stylesheet/less" type="text/less" href="less/radial_loader.less">
+
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js"></script>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.5/less.min.js"></script>
-
-  <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
-  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Comfortaa:400,700">
-  <link rel="stylesheet/less" type="text/less" href="less/radial_loader.less">
 
 </head>
 <body>
@@ -25,12 +24,32 @@
 
   <section class="experiment">
 
-    <p>Hello!</p>
+    <h1>CSS3 Radial Loader</h1>
+
+
+    <article class="experiment__loader">
+
+      <div class="loader__progress">
+        <div class="circle">
+          <div class="mask full">
+            <div class="fill"></div>
+          </div>
+          <div class="mask half">
+            <div class="fill"></div>
+            <div class="fill fix"></div>
+          </div>
+          <div class="inset"></div>
+        </div>
+      </div>
+
+    </article>
+
 
   </section>
 
 
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
   <script type="text/javascript" src="js/radial_loader.js"></script>
 </body>
 </html>
