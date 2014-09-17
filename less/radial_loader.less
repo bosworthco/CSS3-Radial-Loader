@@ -31,7 +31,7 @@
 }
 
 html, body{
-	.font-base();
+	.font-bold();
 	font-size: 10px;
 	margin: 0;
 	padding: 0;
@@ -43,9 +43,9 @@ html, body{
 }
 
 h1, h2, h3,
-h4, h5, h6{
-	.font-bold();
+h4, h5, h6, a, p {
 	color: #ECF02C;
+	text-decoration: none;
 }
 
 .experiment{
@@ -61,7 +61,7 @@ h4, h5, h6{
 @circle-bg:		#296390;
 @circle-color:	#ECF02C;
 @circle-size:	24rem;
-@inset-size:	@circle-size - 2;
+@inset-size:	@circle-size - 1;
 
 @transition-length: 1s;
 
